@@ -1,7 +1,8 @@
 <template>
   <v-app>
     <v-content>      
-        <Header/>      
+        <Header/>
+        <Body />      
     </v-content>
     <v-footer :fixed="fixed" app>
       <span>&copy; 2018</span>
@@ -11,11 +12,12 @@
 
 <script>
 import Header from './components/Header'
-
+import Body from './components/Body'
 export default {
   name: 'App',
   components: {
-    Header
+    Header,
+    Body
   },
   data () {
     return {
