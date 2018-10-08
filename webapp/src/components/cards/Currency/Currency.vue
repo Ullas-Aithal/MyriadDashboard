@@ -4,8 +4,7 @@
     <v-card-title primary-title class="justify-center">
         <div>
             <h1 class="display-3">₹ {{currencyValue}}</h1>
-            <h2>USD → INR</h2>
-        
+            <h2>USD → INR</h2>        
         </div>
     </v-card-title>
     </v-card>
@@ -38,7 +37,7 @@ export default {
         }
         else{
             /* eslint-disable no-console */
-            console.log("Couldn't get url from currencyUrl from config.js file");
+            console.log("Couldn't get url for currencyUrl from config.js file");
             /* eslint-disable no-console */
         }
     }

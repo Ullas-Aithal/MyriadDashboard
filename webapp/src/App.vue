@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app dark>
     <v-content>      
         <Header/>
         <Body />      
@@ -13,6 +13,7 @@
 <script>
 import Header from './components/Header'
 import Body from './components/Body'
+import moment from 'vue-moment'
 export default {
   name: 'App',
   components: {

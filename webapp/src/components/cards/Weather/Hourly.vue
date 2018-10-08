@@ -13,6 +13,9 @@
                 </span>
             </div>
         </v-card-title>
+        <v-card-actions class="card-bottom-background justify-center">
+            <p>{{hour.IconPhrase}}</p>
+        </v-card-actions>
     </v-card>
 </template>
 
@@ -25,6 +28,9 @@
 .weather-icon-style {
     display: inline-flex;
     justify-content: center;
+}
+.card-bottom-background {
+    background: teal;
 }
 </style>
 <script>
