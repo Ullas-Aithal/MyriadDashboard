@@ -8,7 +8,7 @@ var config = {
     //Give your zipcode for 'q' in the request
 
     accuWeather: {
-        forecastUrl:'http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/',
+        forecastUrl:'https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/',
         imageUrl: 'https://developer.accuweather.com/sites/default/files/',
         apikey: '<<your_api_key_goes_here>>',     
         locationKey: '26495_PC',
@@ -24,7 +24,7 @@ var config = {
 
     //More information on currency converter API https://free.currencyconverterapi.com/ 
     currencyConverter:{
-        url:'http://free.currencyconverterapi.com/api/v5/convert?q=',
+        url:'https://free.currencyconverterapi.com/api/v5/convert?q=',
         fromCurrency: 'USD',
         toCurrency: 'INR',
         getUrl: function(){
