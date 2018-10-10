@@ -1,9 +1,10 @@
 <template>
 <v-flex xs3 text-xs-center>
- <v-card color="teal darken-1" class="white--text">
+ <v-card class="white--text">
     <v-card-title primary-title class="justify-center">
         <div>
-            <h1 class="display-3">₹ {{currencyValue}}</h1>
+            <h1 class="display-3">₹ {{currencyValue}}
+            </h1>
             <h2>USD → INR</h2>        
         </div>
     </v-card-title>
@@ -18,13 +19,17 @@ export default {
     data() {
         return {
             currencyValue:0.0,
-            configData: config
+            configData: config,
+            querying: false
         }
     },
-    mounted(){
-        if(this.configData.currencyConverter.getUrl() != null){
-            axios.get(this.configData.currencyConverter.getUrl())
-            .then((response) => {
+    methods:{
+        getCurrency(){
+            if(this.configData.currencyConverter.getUrl() != null){
+                this.querying = true;
+                axios.get(this.configData.currencyConverter.getUrl())
+                .then((response) => {
+                    this.querying = false;
                 if(response.status == 200){
                     this.currencyValue = (response.data.USD_INR.val).toFixed(2);
                 }
@@ -34,12 +39,17 @@ export default {
                     /* eslint-enable no-console */
                 }
                 });
-        }
-        else{
-            /* eslint-disable no-console */
-            console.log("Couldn't get url for currencyUrl from config.js file");
-            /* eslint-disable no-console */
-        }
+            }
+            else{
+                /* eslint-disable no-console */
+                console.log("Couldn't get url for currencyUrl from config.js file");
+                /* eslint-disable no-console */
+            }
+        }   
+    },
+    mounted(){
+        this.getCurrency();
+        setInterval(() => this.getCurrency(), 60*15*1000);
     }
 }
 

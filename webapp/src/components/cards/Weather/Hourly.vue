@@ -2,19 +2,17 @@
     <v-card  class="card-height">
         <v-card-title primary-title class="justify-center">
             <div align-center>
-                <h3 class="headline mb-0">{{time.hours}} {{time.suffix}}</h3>
-                <img v-bind:src="weatherImageUrl"
-                    contain
-                >
-                <h3>{{hour.Temperature.Value.toFixed(0)}}°</h3>
+                <h1>{{hour.Temperature.Value.toFixed(0)}}°</h1>
+                <img v-bind:src="weatherImageUrl" contain>
                 <span class="weather-icon-style">
                 <img src="https://cdn0.iconfinder.com/data/icons/climatic-equipment-filled-line/614/7891_-_Humidity-512.png" height="20px" width="20px">
-                <p> {{hour.PrecipitationProbability}}%</p>
+                <h4> {{hour.PrecipitationProbability}}%</h4>
                 </span>
+                <!-- <p>{{hour.IconPhrase}}</p> -->
             </div>
         </v-card-title>
-        <v-card-actions class="card-bottom-background justify-center">
-            <p>{{hour.IconPhrase}}</p>
+        <v-card-actions class="justify-center">
+            <h4>{{time.hours}} {{time.suffix}}</h4>
         </v-card-actions>
     </v-card>
 </template>
@@ -30,7 +28,7 @@
     justify-content: center;
 }
 .card-bottom-background {
-    background: teal;
+    background: #2e3858;
 }
 </style>
 <script>
