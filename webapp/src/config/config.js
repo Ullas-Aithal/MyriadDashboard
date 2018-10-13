@@ -30,6 +30,17 @@ var config = {
         getUrl: function(){
             return this.url + this.fromCurrency + '_' + this.toCurrency + '&compact=y';
         }
+    },
+
+    meetups:{
+        url:'https://api.meetup.com/find/groups?&sign=true&photo-host=public&upcoming_events=true',
+        zipCode: '60641',
+        category: '34',
+        radius: '50',
+        apikey: '<<your_api_key_goes_here>>',
+        getUrl: function(){
+            return this.url + "&zip=" + this.zipCode + "&radius=" + this.radius + "&category=" + this.category + "&key=" + this.apikey;
+        }
     }
 }
 export default config
