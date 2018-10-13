@@ -1,15 +1,13 @@
 <template>
-  
-    <v-app v-bind:style="{ backgroundImage: 'url(' + 'https://www.sciencedaily.com/images/2016/11/161130141053_1_900x600.jpg' + ')' }">
-      <v-content>      
+    <v-app :style="{'background-image': 'url(' + require('./assets/background.jpg') + ')', 'background-repeat': 'no-repeat'}">
+      <v-content>
           <Header/>
           <Body />
       </v-content>
       <v-footer :fixed="fixed" app>
         <span>&copy; 2018</span>
       </v-footer>
-    </v-app>
-  
+    </v-app>  
 </template>
 
 <script>
