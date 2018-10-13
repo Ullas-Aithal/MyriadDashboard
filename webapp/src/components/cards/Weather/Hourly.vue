@@ -1,5 +1,6 @@
 <template>
-    <div style="opacity: 0.5;">
+    <div>
+    <!-- <div style="opacity: 0.5;"> -->
         <v-card  class="card-height">
             <v-card-title primary-title class="justify-center">
                 <div align-center>

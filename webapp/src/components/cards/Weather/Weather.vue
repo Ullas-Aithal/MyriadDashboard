@@ -11,7 +11,7 @@
     </div>
 </template>
 <script>
-import axios from 'axios'
+//import axios from 'axios'
 import Hourly from './Hourly'
 import config from '../../../config/config'
 export default {

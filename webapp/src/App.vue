@@ -1,6 +1,8 @@
 <template>
-    <v-app :style="{'background-image': 'url(' + require('./assets/background.jpg') + ')', 'background-repeat': 'no-repeat'}">
+    <!-- <v-app dark> -->
+    <v-app :style="{'background-image': 'url(' + require('./assets/background.jpg') + ')', 'background-repeat': 'no-repeat', 'background-size':'cover'}">
       <v-content>
+      <!-- <v-content :style="{'opacity': '0.8'}"> -->
           <Header/>
           <Body />
       </v-content>
