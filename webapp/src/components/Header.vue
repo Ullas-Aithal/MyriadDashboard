@@ -2,7 +2,7 @@
 <v-container fluid grid-list-md text-xs-center>
     <v-layout>
     <v-flex>
-        <v-card>
+        <v-card class="white--text" :style="{'background': 'rgba(0,0,0,0.3)'}">
             <v-card-title >
                 <v-flex xs2>
                 <h1>{{currentTime}}</h1>

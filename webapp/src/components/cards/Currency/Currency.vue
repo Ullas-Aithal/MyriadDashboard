@@ -1,14 +1,13 @@
 <template>
 <v-flex xs3 text-xs-center>
-    <v-card class="black--text">
-    <!-- <v-card class="white--text"> -->
-    <v-card-title primary-title class="justify-center">
-        <div>
-            <h1 class="display-3">₹ {{currencyValue}}
-            </h1>
-            <h2>USD → INR</h2>
-        </div>
-    </v-card-title>
+    <v-card :style="{'background': 'rgba(0,0,0,0.3)'}" class="white--text">
+        <v-card-title primary-title class="justify-center">
+            <div>
+                <h1 class="display-3">₹ {{currencyValue}}
+                </h1>
+                <h2>USD → INR</h2>
+            </div>
+        </v-card-title>
     </v-card>
 </v-flex>
 </template>
