@@ -20,7 +20,6 @@
     </div>
 </template>
 
-
 <style>
 .card-margin {
     margin-left:3px;
@@ -34,6 +33,7 @@
     background: #2e3858;
 }
 </style>
+
 <script>
 import config from '../../../config/config'
 //import axios from 'axios'    

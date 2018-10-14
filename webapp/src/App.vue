@@ -12,6 +12,10 @@
     </v-app>  
 </template>
 
+<!-- <style lang="scss">
+  @import 'assets/css/style.css';
+</style> -->
+
 <script>
 import Header from './components/Header'
 import Body from './components/Body'
