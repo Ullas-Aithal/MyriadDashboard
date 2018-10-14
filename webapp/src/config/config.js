@@ -38,8 +38,9 @@ var config = {
         category: '34',
         radius: '50',
         apikey: '<<your_api_key_goes_here>>',
+        page:'5',
         getUrl: function(){
-            return this.url + "&zip=" + this.zipCode + "&radius=" + this.radius + "&category=" + this.category + "&key=" + this.apikey;
+            return this.url + "&zip=" + this.zipCode + "&radius=" + this.radius + "&category=" + this.category + "&key=" + this.apikey + "&page=" + this.page;
         }
     }
 }
