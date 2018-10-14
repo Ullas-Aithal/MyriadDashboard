@@ -1,7 +1,7 @@
 <template>
     <div>
     <!-- <div style="opacity: 0.5;"> -->
-        <v-card  class="card-height">
+        <v-card class="card-height white--text" :style="{'background': 'rgba(0,0,0,0.3)'}">
             <v-card-title primary-title class="justify-center">
                 <div align-center>
                     <h1>{{hour.Temperature.Value.toFixed(0)}}°</h1>

@@ -1,6 +1,5 @@
 <template>
     <div>
-    <!-- <div style="opacity: 0.5;"> -->
         <v-container fluid grid-list-md text-xs-center>
             <v-layout row>
                 <v-flex xs1 v-for="(hour,index) in hours" v-bind:key="index">
