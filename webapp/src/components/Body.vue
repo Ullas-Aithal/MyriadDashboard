@@ -6,6 +6,7 @@
             <v-layout row >
                 <Currency></Currency>
                 <Meetups></Meetups>
+                <CTA></CTA>
             </v-layout>
         </v-container>
     </v-flex>
@@ -15,12 +16,14 @@
 import Weather from '../components/cards/Weather/Weather'
 import Currency from '../components/cards/Currency/Currency'
 import Meetups from '../components/cards/Meetups/Meetups'
+import CTA from '../components/cards/CTA/CTA'
 export default {
     name:'Body',
     components:{
         Weather,
         Currency,
-        Meetups
+        Meetups,
+        CTA
     }
 }
 </script>

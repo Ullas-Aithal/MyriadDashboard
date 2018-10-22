@@ -42,6 +42,28 @@ var config = {
         getUrl: function(){
             return this.url + "&zip=" + this.zipCode + "&radius=" + this.radius + "&category=" + this.category + "&key=" + this.apikey + "&page=" + this.page;
         }
+    },
+    cta:{
+        north:{
+        url:'https://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?outputType=JSON',
+        mapid: '40550',
+        route: 'blue',
+        stpid: '30107',
+        apikey: '<<your_api_key_goes_here>>',
+        getUrl: function(){
+            return this.url + "&mapid=" + this.mapid + "&rt=" + this.route + "&key=" + this.apikey + "&stpid=" + this.stpid;
+         }
+        },
+        south:{
+            url:'https://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?&outputType=JSON',
+            mapid: '40550',
+            route: 'blue',
+            stpid: '30108',
+            apikey: '<<your_api_key_goes_here>>',
+            getUrl: function(){
+                return this.url + "&mapid=" + this.mapid + "&rt=" + this.route + "&key=" + this.apikey + "&stpid=" + this.stpid;
+             }
+            }
     }
 }
 export default config

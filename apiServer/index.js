@@ -8,8 +8,26 @@ app.use(cors());
 app.get('/',(req,response) => {
     response.send('Making Call');
 });
-//POST request from the app with jenkins url
+
 app.post('/',(req,res) => {
+    console.log(req);
+    var options = {
+        url: req.body.url,
+        method: 'GET',
+      }    
+    request(options,(error,response,body)=>{
+        console.log(options.url);
+        if(error){
+            console.log("Error connecting " + error);
+        }
+        else{
+            console.log(response.statusCode + ' ' + response.statusMessage + ' for: ' + options.url);
+            res.send(body);
+        }
+    })   
+});
+
+app.post('/cta',(req,res) => {
     console.log(req);
     var options = {
         url: req.body.url,
