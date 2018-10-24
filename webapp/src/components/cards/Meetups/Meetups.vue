@@ -1,12 +1,14 @@
 <template>
     <v-flex  xs3 text-xs-center>
-    <v-card  class="max-card-height white--text">
+    <v-card  class="max-card-height white--text" :style="{'background': 'rgba(0,0,0,0.3)'}">
     <v-carousel hide-controls hide-delimiters class="max-card-height">
         <v-carousel-item contain="true" 
             v-for="(meetup,index) in meetupsList"
-            :key="index"
-            :src="meetup.group_photo.thumb_link">
-            <p>{{meetup.name}}</p>
+            :key="index">
+            <!-- <v-flex xs2><img style="width: 70px; height: 70px" :src=meetup.group_photo.thumb_link></v-flex> -->
+            <h2 class=" white--text">{{meetup.name}}</h2>
+            <h3 class="white--text">{{ moment.unix(meetup.next_event.time/1000).format('hh:mm YYYY-MM-DD')}}</h3>
+            <h4 class="white--text"></h4>
             </v-carousel-item>
     </v-carousel>
         </v-card>
@@ -20,13 +22,18 @@
 <script>
 import axios from 'axios'
 import config from '../../../config/config'
+import moment from 'moment'
 export default {
     name: 'Meetups',
     data(){
         return{
             configData:config,
+            moment: moment,
             meetupsList:[]
         }
+    },
+    filters: {
+        moment:moment
     },
     methods:{
 
