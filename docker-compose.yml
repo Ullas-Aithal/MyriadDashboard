@@ -1,0 +1,14 @@
+version: '2' # specify docker-compose version
+
+services:
+  app: # UI app
+    build: webapp # directory of the Dockerfile
+    ports:
+      - "8000:8080" # port forwarding
+    environment:
+      - "HOST=0.0.0.0" #web-pack by default uses localhost. To be accessible outside docker, host should be set to 0.0.0.0
+
+  server: # API Proxy Server
+    build: apiServer # directory of the Dockerfile
+    ports:
+      - "3000:3000" #port forwarding
