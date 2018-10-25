@@ -37,7 +37,7 @@ var config = {
         zipCode: '60641',
         category: '34',
         radius: '50',
-        apikey: '<<your_api_key_goes_here>>',
+        apikey: '<<your_api_key_goes_here>>',     
         page:'5',
         getUrl: function(){
             return this.url + "&zip=" + this.zipCode + "&radius=" + this.radius + "&category=" + this.category + "&key=" + this.apikey + "&page=" + this.page;
@@ -49,17 +49,17 @@ var config = {
         mapid: '40550',
         route: 'blue',
         stpid: '30107',
-        apikey: '<<your_api_key_goes_here>>',
+        apikey: '<<your_api_key_goes_here>>',     
         getUrl: function(){
             return this.url + "&mapid=" + this.mapid + "&rt=" + this.route + "&key=" + this.apikey + "&stpid=" + this.stpid;
          }
         },
         south:{
-            url:'https://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?&outputType=JSON',
+            url:'https://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?outputType=JSON',
             mapid: '40550',
             route: 'blue',
             stpid: '30108',
-            apikey: '<<your_api_key_goes_here>>',
+            apikey: '<<your_api_key_goes_here>>',     
             getUrl: function(){
                 return this.url + "&mapid=" + this.mapid + "&rt=" + this.route + "&key=" + this.apikey + "&stpid=" + this.stpid;
              }

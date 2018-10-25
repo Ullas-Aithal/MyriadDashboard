@@ -14,6 +14,7 @@ app.post('/',(req,res) => {
     var options = {
         url: req.body.url,
         method: 'GET',
+        
       }    
     request(options,(error,response,body)=>{
         console.log(options.url);
@@ -32,6 +33,7 @@ app.post('/cta',(req,res) => {
     var options = {
         url: req.body.url,
         method: 'GET',
+        
       }    
     request(options,(error,response,body)=>{
         console.log(options.url);

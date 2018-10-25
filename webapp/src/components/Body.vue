@@ -6,7 +6,8 @@
             <v-layout row >
                 <Currency></Currency>
                 <Meetups></Meetups>
-                <CTA></CTA>
+                <CTA v-bind:ctaDirection="ctaDirection[0]"></CTA>
+                <CTA v-bind:ctaDirection="ctaDirection[1]"></CTA>
             </v-layout>
         </v-container>
     </v-flex>
@@ -24,6 +25,14 @@ export default {
         Currency,
         Meetups,
         CTA
+    },
+    data(){
+        return{
+            ctaDirection:[
+                'north',
+                'south'
+            ]
+        }
     }
 }
 </script>
