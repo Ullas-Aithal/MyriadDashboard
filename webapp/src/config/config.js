@@ -64,6 +64,13 @@ var config = {
                 return this.url + "&mapid=" + this.mapid + "&rt=" + this.route + "&key=" + this.apikey + "&stpid=" + this.stpid;
              }
             }
+    },
+    guardian:{
+        url: 'https://content.guardianapis.com/world?',
+        apikey: '<<your_api_key_goes_here>>',  
+        getUrl: function(){
+            return this.url + "api-key=" + this.apiKey;
+        }
     }
 }
 export default config

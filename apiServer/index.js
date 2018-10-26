@@ -42,7 +42,9 @@ app.post('/cta',(req,res) => {
         }
         else{
             console.log(response.statusCode + ' ' + response.statusMessage + ' for: ' + options.url);
+            //console.log(response.body);
             res.send(body);
+
         }
     })   
 });
