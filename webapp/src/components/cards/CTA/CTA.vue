@@ -1,15 +1,17 @@
 <template>
     <v-flex  xs3 text-xs-center>
     <v-card  :style="{'background': 'rgba(0,0,0,0.3)'}" class="max-card-height min-card-height white--text" >
-        <!-- <v-card-title primary-title class="display-6"> -->
-            <h1 primary-title class="display-3">{{destinationStation}}</h1>
-        <!-- </v-card-title> -->
-        <v-layout>
-            <v-flex xs4 > <h2> Next Train in </h2> </v-flex>
-            <v-flex xs3 > <h2 > {{etaTime[0]}} min</h2> </v-flex>
-            <v-flex xs3> <h2 >{{etaTime[1]}} min</h2> </v-flex>
-            <v-flex xs3 v-if="etaTime[2]"> <h2 >{{etaTime[2]}} min</h2> </v-flex>
-        </v-layout>
+         <v-card-title class="justify-center">
+            <h1 primary-title class="display-2">{{destinationStation}}</h1>
+        </v-card-title>
+        
+            <h2> Next Train in </h2>            
+    
+            <v-layout>
+                <v-flex v-if="etaTime[0]"> <h2 > {{etaTime[0]}} min</h2> </v-flex>
+                <v-flex v-if="etaTime[1]"> <h2 >{{etaTime[1]}} min</h2> </v-flex>
+                <v-flex  v-if="etaTime[2]"> <h2 >{{etaTime[2]}} min</h2> </v-flex>
+            </v-layout>
         <!-- <p>{{etaTime1}}</p> -->
     <!-- <v-carousel hide-controls hide-delimiters class="max-card-height">
         <v-carousel-item contain="true" 
