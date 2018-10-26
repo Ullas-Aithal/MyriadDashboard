@@ -4,11 +4,11 @@
     <v-flex>
         <v-card class="white--text" :style="{'background': 'rgba(0,0,0,0.3)'}">
             <v-card-title >
-                <v-flex xs2>
-                <h1>{{currentTime}}</h1>
+                <v-flex xs4>
+                <h1 primary-title class="display-4">{{currentTime}}</h1>
                 </v-flex>
-                <v-flex xs2 offset-xs8>
-                <h1 align-content-end>{{currentConditions[0].Temperature.Metric.Value}} C</h1>
+                <v-flex xs2 offset-xs6>
+                <h1 align-content-end primary-title class="display-3">{{currentConditions[0].Temperature.Metric.Value}} C</h1>
                 <h2>{{currentConditions[0].WeatherText}}</h2>
                 </v-flex>
             </v-card-title>        
