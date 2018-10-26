@@ -10,7 +10,7 @@
     </div>
 </template>
 <script>
-//import axios from 'axios'
+import axios from 'axios'
 import Hourly from './Hourly'
 import config from '../../../config/config'
 export default {
@@ -22,7 +22,8 @@ export default {
         return{
             heading:'Weather For Today',
             configData: config,
-            hours:[{
+             hours:[
+      {
       "DateTime": "2018-10-03T21:00:00-05:00",
       "EpochDateTime": 1538618400,
       "WeatherIcon": 7,
@@ -201,17 +202,19 @@ export default {
       "PrecipitationProbability": 17,
       "MobileLink": "http://m.accuweather.com/en/us/chicago-il/60608/hourly-weather-forecast/26495_pc?day=2&lang=en-us",
       "Link": "http://www.accuweather.com/en/us/chicago-il/60608/hourly-weather-forecast/26495_pc?day=2&hbhhour=8&lang=en-us"
-    }]
+    }
+    ]
         }
     },
-    mounted(){
+    methods:{
+      getWeatherUpdates(){
         // if(this.configData.accuWeather.getForecastUrl() != null){
         // axios.get(this.configData.accuWeather.getForecastUrl())
         // .then((response) => {
         //          var tempResponse = response.data;
         //      for(var index in tempResponse){
-        //          this.hours[index] = tempResponse[index];
-        //          this.hours[index].id = index;
+        //          this.$set(this.hours,index,tempResponse[index]);
+        //          this.$set(this.hours,this.hours[index].id,index);
         //         console.log(this.hours[index]);
         //      }
         //     });
@@ -219,6 +222,11 @@ export default {
         // else{
         //     console.log("Couldn't get url for forecastUrl from config.js file");
         // }
+      }
+    },
+    mounted(){
+        this.getWeatherUpdates();
+        setInterval(() => this.getWeatherUpdates(), 60 * 45 * 1000);
     }
 }
 </script>

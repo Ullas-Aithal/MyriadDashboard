@@ -7,10 +7,7 @@
                 <v-flex xs4>
                 <h1 primary-title class="display-4">{{currentTime}}</h1>
                 </v-flex>
-                <v-flex xs2 offset-xs6>
-                <h1 align-content-end primary-title class="display-3">{{currentConditions[0].Temperature.Metric.Value}} C</h1>
-                <h2>{{currentConditions[0].WeatherText}}</h2>
-                </v-flex>
+                
             </v-card-title>        
         </v-card>
     </v-flex>
@@ -27,29 +24,6 @@ export default {
             datenow: '',
             moment: moment,
             currentTime: null,
-            currentConditions:[
-  {
-    "LocalObservationDateTime": "2018-10-09T21:23:00-05:00",
-    "EpochTime": 1539138180,
-    "WeatherText": "Mostly cloudy",
-    "WeatherIcon": 38,
-    "IsDayTime": false,
-    "Temperature": {
-      "Metric": {
-        "Value": 25.3,
-        "Unit": "C",
-        "UnitType": 17
-      },
-      "Imperial": {
-        "Value": 78,
-        "Unit": "F",
-        "UnitType": 18
-      }
-    },
-    "MobileLink": "http://m.accuweather.com/en/us/chicago-il/60608/current-weather/26495_pc?lang=en-us",
-    "Link": "http://www.accuweather.com/en/us/chicago-il/60608/current-weather/26495_pc?lang=en-us"
-  }
-]
         }
     },
     methods: {
