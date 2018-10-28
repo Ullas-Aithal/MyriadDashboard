@@ -1,16 +1,28 @@
 <template>
-<v-flex xs3 text-xs-center>
-    <v-card :style="{'background': 'rgba(0,0,0,0.3)'}" class="white--text">
-        <v-card-title primary-title class="justify-center">
-            <div>
-                <h1 class="display-3">₹ {{currencyValue}}
-                </h1>
-                <h2>USD → INR</h2>
-            </div>
-        </v-card-title>
-    </v-card>
-</v-flex>
+    <v-flex xs3 text-xs-center>
+        <v-card class="white--text white-transparent-background">
+            <v-card-title primary-title class="justify-center">
+                <div>
+                    <h1 class="display-3">₹ {{currencyValue}}
+                    </h1>
+                    <h2>USD → INR</h2>
+                </div>
+            </v-card-title>
+        </v-card>
+    </v-flex>
 </template>
+
+<!-- <style type="text/css"></style> -->
+<!-- <style lang="scss"></style> -->
+
+<!-- <style lang="scss">  
+  .white-transparent-background{background: rgba(0,0,0,0.3);}
+</style> -->
+
+<style lang="scss">
+  @import '../../../assets/css/style.css';
+</style>
+
 <script>
 import axios from 'axios'
 import config from '../../../config/config'
