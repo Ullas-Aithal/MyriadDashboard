@@ -66,6 +66,9 @@ export default {
                 if(this.ctaETA != null){
                     //Destination station name is the same in alll children objects since we're asking for a specified destination
                     this.destinationStation = this.ctaETA[0].destNm;
+
+                    //Reset object to null
+                    this.etaTime = [];
                     for(var index in this.ctaETA){
                         var arrivaltime = moment(this.ctaETA[index].arrT);
                         this.$set(this.etaTime,index,moment(arrivaltime).diff(moment(),'minutes'));
