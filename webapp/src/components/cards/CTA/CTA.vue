@@ -5,7 +5,7 @@
             <h1 primary-title class="display-2">{{destinationStation}}</h1>
         </v-card-title>
         
-            <h2> Next Train in </h2>            
+            <h3> Next Train in </h3>            
     
             <v-layout>
                 <v-flex v-if="etaTime[0]"> <h2 > {{etaTime[0]}} min</h2> </v-flex>
@@ -66,6 +66,9 @@ export default {
                 if(this.ctaETA != null){
                     //Destination station name is the same in alll children objects since we're asking for a specified destination
                     this.destinationStation = this.ctaETA[0].destNm;
+
+                    //Reset object to null
+                    this.etaTime = [];
                     for(var index in this.ctaETA){
                         var arrivaltime = moment(this.ctaETA[index].arrT);
                         this.$set(this.etaTime,index,moment(arrivaltime).diff(moment(),'minutes'));
