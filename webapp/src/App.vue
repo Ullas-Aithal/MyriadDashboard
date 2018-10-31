@@ -1,6 +1,6 @@
 <template>
     <!-- <v-app dark> -->
-    <v-app :style="{'background-image': 'url(' + require('./assets/background.jpg') + ')', 'background-repeat': 'no-repeat', 'background-size':'cover', }">
+    <v-app :style="{'background-image': 'url(https://i.pinimg.com/originals/3b/0f/4b/3b0f4be980fbcded880d245500cbe1f4.jpg)', 'background-repeat': 'no-repeat', 'background-size':'cover', }">
       <v-content>
       <!-- <v-content :style="{'opacity': '0.8'}"> -->
           <Header/>

@@ -5,7 +5,7 @@
             <h1 primary-title class="display-2">{{destinationStation}}</h1>
         </v-card-title>
         
-            <h3 v-if="etaTime[0]"> Next Train in </h3>            
+            <h3> Next Train in </h3>            
     
             <v-layout>
                 <v-flex v-if="etaTime[0]"> <h2 > {{etaTime[0]}} min</h2> </v-flex>
