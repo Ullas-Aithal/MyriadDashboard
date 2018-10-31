@@ -4,10 +4,10 @@
         <Weather></Weather>
         <v-container fluid grid-list-md >
             <v-layout row >
-                <Currency></Currency>
-                <Meetups></Meetups>
                 <CTA v-bind:ctaDirection="ctaDirection[0]"></CTA>
                 <CTA v-bind:ctaDirection="ctaDirection[1]"></CTA>
+                <Meetups></Meetups>
+                <Currency></Currency>
             </v-layout>
         </v-container>
     </v-flex>

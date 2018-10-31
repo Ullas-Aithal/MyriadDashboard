@@ -4,14 +4,14 @@
     <v-card-title class="justify-center">
         <h1 primary-title class="display-2">Meetups</h1>
     </v-card-title>
-    <v-carousel hide-controls hide-delimiters class="max-card-height">
+    <v-carousel hide-controls hide-delimiters class="max-card-height box-shadow-none ">
         <v-carousel-item contain="true" 
             v-for="(meetup,index) in meetupsList"
             :key="index">
             <!-- <v-flex xs2><img style="width: 70px; height: 70px" :src=meetup.group_photo.thumb_link></v-flex> -->
-            <h2 class=" white--text" :style="{'text-overflow':'ellipsis'}">{{meetup.name}}</h2>
-            <h3 class="white--text">{{ moment.unix(meetup.next_event.time/1000).format('hh:mm YYYY-MM-DD')}}</h3>
-            <h4 class="white--text"></h4>
+            <h3 class=" white--text text-overflow" :style="{'text-overflow':'ellipsis'}">{{meetup.name}}</h3>
+            <h3 class=" white--text text-overflow body-1" >{{meetup.next_event.name}}</h3>
+            <h4 class="white--text text-overflow body-2">{{ moment.unix(meetup.next_event.time/1000).format('h:mm a dddd MMM Do ')}}</h4>
             </v-carousel-item>
     </v-carousel>
         </v-card>
@@ -19,7 +19,18 @@
 </template>
 <style>
 .max-card-height{
-    max-height: 150px !important;
+    min-height: 150px !important;
+}
+.box-shadow-none {
+    box-shadow: none !important;
+}
+.text-overflow {
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    display: block !important;
+    overflow: hidden !important;
+    margin-left: 10px !important;
+    margin-right: 1px !important;
 }
 </style>
 <script>
@@ -39,10 +50,8 @@ export default {
         moment:moment
     },
     methods:{
-
-    },
-    mounted(){
-        var tempUrl = this.configData.meetups.getUrl();
+        getMeetupUpdates(){
+            var tempUrl = this.configData.meetups.getUrl();
         var options = {
         url: 'http://localhost:3000/',
         method: 'POST',
@@ -55,6 +64,7 @@ export default {
             if(response.status == 200){
                 console.log(response.data);
                 this.meetupsList = response.data
+                console.log(this.meetupsList);
             }
             else {
                  /* eslint-disable no-console */
@@ -62,6 +72,11 @@ export default {
                     /* eslint-enable no-console */
             }
         })
+        }
+    },
+    mounted(){
+        this.getMeetupUpdates();
+        setInterval(() => this.getCurrency(), 60*60*1000);
     }
 }
 </script>

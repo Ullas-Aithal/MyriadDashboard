@@ -22,7 +22,8 @@ export default {
         return{
             heading:'Weather For Today',
             configData: config,
-             hours:[
+            hours:[],
+             hours2:[
       {
       "DateTime": "2018-10-03T21:00:00-05:00",
       "EpochDateTime": 1538618400,
@@ -208,20 +209,21 @@ export default {
     },
     methods:{
       getWeatherUpdates(){
-        // if(this.configData.accuWeather.getForecastUrl() != null){
-        // axios.get(this.configData.accuWeather.getForecastUrl())
-        // .then((response) => {
-        //          var tempResponse = response.data;
-        //      for(var index in tempResponse){
-        //          this.$set(this.hours,index,tempResponse[index]);
-        //          this.$set(this.hours,this.hours[index].id,index);
-        //         console.log(this.hours[index]);
-        //      }
-        //     });
-        // }
-        // else{
-        //     console.log("Couldn't get url for forecastUrl from config.js file");
-        // }
+        if(this.configData.accuWeather.getForecastUrl() != null){
+        axios.get(this.configData.accuWeather.getForecastUrl())
+        .then((response) => {
+                 var tempResponse = response.data;
+                 this.hours = [];
+             for(var index in tempResponse){
+                 this.$set(this.hours,index,tempResponse[index]);
+                 this.$set(this.hours,this.hours[index].id,index);
+                console.log(this.hours[index]);
+             }
+            });
+        }
+        else{
+            console.log("Couldn't get url for forecastUrl from config.js file");
+        }
       }
     },
     mounted(){
