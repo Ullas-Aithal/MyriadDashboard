@@ -66,10 +66,10 @@ var config = {
             }
     },
     guardian:{
-        url: 'https://content.guardianapis.com/world?',
-        apikey: '<<your_api_key_goes_here>>',  
+        url: 'http://content.guardianapis.com/search?&order-by=newest&show-fields=all&section=world&',
+        apikey: '<<your_api_key_goes_here>>',
         getUrl: function(){
-            return this.url + "api-key=" + this.apiKey;
+            return this.url + "api-key=" + this.apikey;
         }
     }
 }
