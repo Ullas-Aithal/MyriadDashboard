@@ -4,7 +4,7 @@
     <v-card-title class="justify-center">
         <h1 primary-title class="display-2">Meetups</h1>
     </v-card-title>
-    <v-carousel hide-controls hide-delimiters class="max-card-height">
+    <v-carousel hide-controls hide-delimiters class="max-card-height box-shadow-none ">
         <v-carousel-item contain="true" 
             v-for="(meetup,index) in meetupsList"
             :key="index">
@@ -20,6 +20,9 @@
 <style>
 .max-card-height{
     max-height: 150px !important;
+}
+.box-shadow-none {
+    box-shadow: none !important;
 }
 </style>
 <script>
