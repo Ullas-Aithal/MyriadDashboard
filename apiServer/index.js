@@ -10,7 +10,6 @@ app.get('/',(req,response) => {
 });
 
 app.post('/',(req,res) => {
-    console.log(req);
     var options = {
         url: req.body.url,
         method: 'GET',
@@ -29,7 +28,6 @@ app.post('/',(req,res) => {
 });
 
 app.post('/cta',(req,res) => {
-    console.log(req);
     var options = {
         url: req.body.url,
         method: 'GET',
