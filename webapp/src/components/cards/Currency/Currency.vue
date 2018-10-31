@@ -1,9 +1,9 @@
 <template>
 <v-flex xs3 text-xs-center>
-    <v-card :style="{'background': 'rgba(0,0,0,0.3)'}" class="white--text">
+    <v-card class="max-card-height white--text" :style="{'background': 'rgba(0,0,0,0.3)'}" >
         <v-card-title primary-title class="justify-center">
             <div>
-                <h1 class="display-3">₹ {{currencyValue}}
+                <h1 primary-title class="display-3">₹ {{currencyValue}}
                 </h1>
                 <h2>USD → INR</h2>
             </div>
@@ -11,6 +11,11 @@
     </v-card>
 </v-flex>
 </template>
+<style>
+.max-card-height{
+    min-height: 150px !important;
+}
+</style>
 <script>
 import axios from 'axios'
 import config from '../../../config/config'

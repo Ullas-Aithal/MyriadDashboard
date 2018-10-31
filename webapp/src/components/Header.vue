@@ -4,10 +4,10 @@
     <v-flex>
         <v-card class="white--text" :style="{'background': 'rgba(0,0,0,0.3)'}">
             <v-card-title >
-                <v-flex xs4>
+                <v-flex xs5>
                 <h1 primary-title class="display-4">{{currentTime}}</h1>
                 </v-flex>
-                <v-flex class="justify-right" xs8>
+                <v-flex class="justify-right" xs7>
                   <h2 primary-title>{{news.webTitle}}</h2>
                 </v-flex>
                 
