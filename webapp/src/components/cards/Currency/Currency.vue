@@ -2,18 +2,27 @@
 <v-flex xs3 text-xs-center>
     <v-card class="max-card-height white--text" :style="{'background': 'rgba(0,0,0,0.3)'}" >
         <v-card-title primary-title class="justify-center">
-            <div>
-                <h1 primary-title class="display-3">₹ {{currencyValue}}
-                </h1>
-                <h2>USD → INR</h2>
-            </div>
+                <h1 primary-title class="display-3">₹ {{currencyValue}}</h1>
+                <p class="delta-value-style" v-if="deltaValueString" v-bind:class="{ 'green-color': deltaPositive , 'red-color': !deltaPositive }">{{deltaValueString}}</p>
         </v-card-title>
+        <h2>USD → INR</h2>
     </v-card>
 </v-flex>
 </template>
 <style>
 .max-card-height{
     min-height: 150px !important;
+}
+.delta-value-style {
+    margin-right: -20px !important;
+    padding-left: 5px !important;
+    align-self: end !important;
+}
+.green-color {
+    color: greenyellow;
+}
+.red-color {
+    color: red;
 }
 </style>
 <script>
@@ -24,6 +33,8 @@ export default {
     data() {
         return {
             currencyValue:0.0,
+            deltaValueString:'',
+            deltaPositive:false,
             configData: config,
             querying: false
         }
@@ -36,7 +47,28 @@ export default {
                 .then((response) => {
                     this.querying = false;
                 if(response.status == 200){
+                    var prevCurrencyValue = this.currencyValue;
+                    console.log(prevCurrencyValue);
+                    var deltaValue = 0.00;
                     this.currencyValue = (response.data.USD_INR.val).toFixed(2);
+                    deltaValue =  this.currencyValue - prevCurrencyValue;
+                    //Calculate delta value from previous value
+                    console.log(deltaValue);
+                    if(deltaValue != this.currencyValue){
+                        deltaValue = deltaValue.toFixed(3);
+                        if(deltaValue > 0){
+                            this.deltaValueString =  "(+" + deltaValue + ")";
+                            this.deltaPositive = true;
+                        }
+                        else if(deltaValue < 0){
+                            this.deltaValueString =  "(-" + deltaValue + ")";
+                            this.deltaPositive = false;
+                        }
+                        else{
+                            this.deltaValueString =  '';
+                        }
+                        
+                    }
                 }
                 else{
                     /* eslint-disable no-console */
