@@ -90,7 +90,7 @@ export default {
     this.updateNewsFeed();
     this.currentTime = moment().format('LTS');
     setInterval(() => this.updateCurrentTime(), 1 * 1000);
-    setInterval(() => this.updateCurrentTime(), 60 * 15 * 1000);
+    setInterval(() => this.updateNewsFeed(), 60 * 15 * 1000);
   }
 }
 
