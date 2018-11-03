@@ -33,6 +33,7 @@ export default {
     data() {
         return {
             currencyValue:0.0,
+            previousCurrencyValue: 72.89,
             deltaValueString:'',
             deltaPositive:false,
             configData: config,
@@ -47,27 +48,13 @@ export default {
                 .then((response) => {
                     this.querying = false;
                 if(response.status == 200){
-                    var prevCurrencyValue = this.currencyValue;
-                    console.log(prevCurrencyValue);
-                    var deltaValue = 0.00;
                     this.currencyValue = (response.data.USD_INR.val).toFixed(2);
-                    deltaValue =  this.currencyValue - prevCurrencyValue;
-                    //Calculate delta value from previous value
-                    console.log(deltaValue);
-                    if(deltaValue != this.currencyValue){
-                        deltaValue = deltaValue.toFixed(3);
-                        if(deltaValue > 0){
-                            this.deltaValueString =  "(+" + deltaValue + ")";
-                            this.deltaPositive = true;
-                        }
-                        else if(deltaValue < 0){
-                            this.deltaValueString =  "(-" + deltaValue + ")";
-                            this.deltaPositive = false;
-                        }
-                        else{
-                            this.deltaValueString =  '';
-                        }
-                        
+                    //When the app is opened first time
+                    if(this.previousCurrencyValue == 0.0){
+                        this.prevCurrencyValue = this.currencyValue;
+                    }
+                    else{
+                        this.calculateChange();
                     }
                 }
                 else{
@@ -82,6 +69,20 @@ export default {
                 console.log("Couldn't get url for currencyUrl from config.js file");
                 /* eslint-disable no-console */
             }
+        },
+        calculateChange(){
+            var deltaValue = 0.00;
+            deltaValue =  this.currencyValue - this.previousCurrencyValue;
+            console.log(this.previousCurrencyValue);
+            deltaValue = deltaValue.toFixed(3);
+            if(deltaValue > 0){
+                this.deltaValueString =  "(+" + deltaValue + ")";
+                this.deltaPositive = true;
+            }
+            else if(deltaValue < 0){
+                this.deltaValueString =  "(-" + deltaValue + ")";
+                this.deltaPositive = false;
+            }                
         }   
     },
     mounted(){
