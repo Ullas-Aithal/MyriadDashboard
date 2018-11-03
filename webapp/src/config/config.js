@@ -21,6 +21,17 @@ var config = {
             return this.imageUrl + iconNumber + '-s.png'
         }
     },
+    darkSky:{
+        forecastUrl:'https://api.darksky.net/forecast/',
+        latAndLong:'41.956710,-87.729778',
+        exclude:'minutely,daily',
+        //si for km/celcius
+        units:'si',
+        apiKey: '<<your_api_key_goes_here>>',    
+        getForecastUrl:function(){
+            return this.forecastUrl + this.apiKey + "/" + this.latAndLong + "/?exclude=" + this.exclude + "&units=" + this.units
+        }
+    },
 
     //More information on currency converter API https://free.currencyconverterapi.com/ 
     currencyConverter:{

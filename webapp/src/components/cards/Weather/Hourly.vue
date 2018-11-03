@@ -6,17 +6,19 @@
                 <div align-center>
                     <v-layout>
                         <v-flex  text-xs-center>
-                    <h1>{{hour.Temperature.Value.toFixed(0)}}°</h1>
+                            <h1>{{hour.apparentTemperature.toFixed(0)}}°</h1>
                         </v-flex>
                     </v-layout>
-                    <v-layout>
-                        <img v-bind:src="weatherImageUrl" contain>
+                    <v-layout text-xs-center>
+                        <skycon v-bind:condition="hour.icon" :key="hour.icon"/>
                     </v-layout>
-                    <h3 class="caption">{{hour.IconPhrase}}</h3>
+                    <v-layout text-xs-center justify-center class="margin-top">                        
+                        <h4 class="caption text-overflow2">{{hour.summary}}</h4>
+                    </v-layout>
                 </div>
             </v-card-title>
             <v-card-actions class="justify-center padding-up-0">
-                <h4>{{time.hours}} {{time.suffix}}</h4>
+                <h4>{{moment.unix(hour.time).format('h A')}}</h4>
             </v-card-actions>
         </v-card>
     </div>
@@ -38,9 +40,25 @@
 .padding-up-0 {
     padding-top: 0px !important;
 }
+.margin-top {
+    margin-top: 10px !important;
+}
+.text-overflow2 {
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    display: block !important;
+    overflow: hidden !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
 </style>
 <script>
+import Vue from 'vue'
 import config from '../../../config/config'
+import moment from 'moment'
+import VueSkycons from 'vue-skycons'
+
+Vue.use(VueSkycons, { color: 'white' });
 //import axios from 'axios'    
     export default {
         name: "Hourly",
@@ -50,45 +68,13 @@ import config from '../../../config/config'
     
         data() {    
             return {    
-                time: {    
-                    hours: 0,    
-                    suffix: "null"    
-                },
-                configData: config,
-                weatherImageUrl: "",
-            };    
+                configData: config,        
+                moment: moment,
+            };   
+             
         },
-    
-        mounted() {
-            //Covert Epoch time to normal DatetTime format
-            var dateTime = new Date(0); // The 0 there is the key, which sets the date to the epoch
-            var weatherIconString = "null";
-            dateTime.setUTCSeconds(this.hour.EpochDateTime);    
-            this.time.hours = dateTime.getHours();
-
-            //Converting to 12 hr format and appending it with AM/PM    
-            if (this.time.hours >= 12) {
-                if(this.time.hours > 12){
-                    this.time.hours -= 12;
-                }    
-                this.time.suffix = "PM";    
-            } else if (this.time.hours == 0) {
-                this.time.hours = 12;    
-                this.time.suffix = "AM";
-            } else {    
-                this.time.suffix = "AM";
-            }
-            //Add leading zeros for values less than 10
-            if(this.hour.WeatherIcon < 10){
-                weatherIconString = '0' +  this.hour.WeatherIcon;
-            }
-            else{
-                weatherIconString = this.hour.WeatherIcon;
-            }
-            this.weatherImageUrl = this.configData.accuWeather.getImageUrl(weatherIconString);
-            //this.weatherImage = "https://developer.accuweather.com/sites/default/files/" + weatherIconString + "-s.png"
-    
-        }
-    
+        filters: {
+            moment:moment
+        },
     };
 </script>

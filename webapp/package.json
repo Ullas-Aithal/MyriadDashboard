@@ -12,6 +12,7 @@
     "axios": "^0.18.0",
     "vue": "^2.5.17",
     "vue-moment": "^4.0.0",
+    "vue-skycons": "^1.0.5",
     "vuetify": "^1.0.19"
   },
   "devDependencies": {
