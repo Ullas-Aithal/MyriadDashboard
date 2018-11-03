@@ -33,7 +33,7 @@ export default {
     data() {
         return {
             currencyValue:0.0,
-            previousCurrencyValue: 72.89,
+            previousCurrencyValue: 0.0,
             deltaValueString:'',
             deltaPositive:false,
             configData: config,
