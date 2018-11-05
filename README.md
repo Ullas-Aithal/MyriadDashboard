@@ -1,6 +1,6 @@
 # MyriadDashboard
 
-![Screenshot](Screenshot.png)
+![Screenshot](Screenshot.gif)
 Simple web dashboard with mutiple services.
 Built on Vue.js and Vuetify
 
