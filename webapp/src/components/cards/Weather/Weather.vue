@@ -13,6 +13,7 @@
 import axios from 'axios'
 import Hourly from './Hourly'
 import config from '../../../config/config'
+import {dataBus} from '../../../main'
 export default {
     name:'Weather',
     components:{
@@ -39,6 +40,7 @@ export default {
         axios(options)
         .then((response) => {                        
                  this.hours = response.data;
+                 dataBus.$emit('updateWeatherinHeader',this.hours);
             });
         }
         else{
