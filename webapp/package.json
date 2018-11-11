@@ -11,6 +11,7 @@
     "@vue/cli": "^3.0.1",
     "axios": "^0.18.0",
     "vue": "^2.5.17",
+    "vue-easy-slider": "^3.2.0",
     "vue-moment": "^4.0.0",
     "vue-skycons": "^1.0.5",
     "vuetify": "^1.0.19"

@@ -4,16 +4,22 @@
     <v-card-title class="justify-center">
         <h1 primary-title class="display-2">Meetups</h1>
     </v-card-title>
-    <v-carousel hide-controls hide-delimiters class="max-card-height box-shadow-none ">
-        <v-carousel-item contain="true" 
+   <!-- <v-carousel hide-controls hide-delimiters class="max-card-height box-shadow-none ">
+         <v-carousel-item contain="true" 
             v-for="(meetup,index) in meetupsList"
             :key="index">
-            <!-- <v-flex xs2><img style="width: 70px; height: 70px" :src=meetup.group_photo.thumb_link></v-flex> -->
             <h3 class=" white--text text-overflow" :style="{'text-overflow':'ellipsis'}">{{meetup.name}}</h3>
             <h3 class=" white--text text-overflow body-1" >{{meetup.next_event.name}}</h3>
             <h4 class="white--text text-overflow body-2">{{ moment.unix(meetup.next_event.time/1000).format('h:mm a dddd MMM Do ')}}</h4>
             </v-carousel-item>
-    </v-carousel>
+    </v-carousel> -->
+    <slider animation="normal" class="max-card-height box-shadow-none" :indicators="false" :control-btn=false :interval=5000>
+        <slider-item v-for="(meetup,index) in meetupsList" :key="index">                
+            <h3 class=" white--text text-overflow" :style="{'text-overflow':'ellipsis'}">{{meetup.name}}</h3>
+            <h3 class=" white--text text-overflow body-1" >{{meetup.next_event.name}}</h3>
+            <h4 class="white--text text-overflow body-2">{{ moment.unix(meetup.next_event.time/1000).format('h:mm a dddd MMM Do ')}}</h4>                
+        </slider-item>
+     </slider>
         </v-card>
     </v-flex>
 </template>
@@ -37,6 +43,7 @@
 import axios from 'axios'
 import config from '../../../config/config'
 import moment from 'moment'
+import { Slider, SliderItem } from 'vue-easy-slider'
 export default {
     name: 'Meetups',
     data(){
@@ -74,6 +81,10 @@ export default {
         })
         }
     },
+  components: {
+    Slider,
+    SliderItem
+  },
     mounted(){
         this.getMeetupUpdates();
         setInterval(() => this.getCurrency(), 60*60*1000);

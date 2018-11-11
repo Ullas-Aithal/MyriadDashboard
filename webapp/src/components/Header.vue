@@ -15,18 +15,13 @@
                      <v-layout row class="justify-end">
                         <h2 class="text-xs-right">{{currentWeather.hourly.summary}}</h2>
                     </v-layout>
-                    <v-layout row class="news-ticker">
-                        <v-carousel hide-controls hide-delimiters class="max-card-height box-shadow-none" height="100">
-                            <v-carousel-item transition="slide-y-reverse-transition" reverse-transition="slide-y-transition" contain="true" 
-                            v-for="(news,index) in newsList"
-                            :key="index">
-                                <h2 class=" white--text" :style="{'text-overflow':'ellipsis'}">{{news.webTitle}}</h2>
-                                <h3 class=" white--text text-overflow subheading" :style="{'text-overflow':'ellipsis'}">{{news.fields.trailText}}</h3>                            
-                            </v-carousel-item>
-                        </v-carousel>
-                    </v-layout>                   
-                </v-flex>
-                
+                        <slider animation="fade" class="box-shadow-none news-ticker" :indicators="false" :control-btn=false :interval=5000>
+                            <slider-item v-for="(news,index) in newsList" :key="index">
+                                <h2 class=" white--text text-overflow">{{news.webTitle}}</h2>
+                                <h3 class=" white--text text-overflow subheading" :style="{'text-overflow':'ellipsis'}">{{news.fields.trailText}}</h3>          
+                            </slider-item>
+                        </slider>      
+                </v-flex>                
             </v-card-title>        
         </v-card>
     </v-flex>
@@ -46,7 +41,7 @@
         margin-right: 1px !important;
     }
     .news-ticker {
-        max-height: 60px;
+        max-height: 60px !important;
         margin-top: 20px !important;
     }
 </style>
@@ -56,6 +51,7 @@ import moment from 'moment'
 import axios from 'axios'
 import config from '../config/config'
 import VueSkycons from 'vue-skycons'
+import { Slider, SliderItem } from 'vue-easy-slider'
 
 Vue.use(VueSkycons, { color: 'white' });
 import {dataBus} from '../main'
@@ -84,6 +80,10 @@ export default {
             //     "pillarName": "News"
             // },
         }
+    },
+    components: {
+        Slider,
+        SliderItem
     },
     methods: {
     updateCurrentTime() {
