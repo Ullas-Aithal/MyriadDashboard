@@ -13,7 +13,7 @@
             <h4 class="white--text text-overflow body-2">{{ moment.unix(meetup.next_event.time/1000).format('h:mm a dddd MMM Do ')}}</h4>
             </v-carousel-item>
     </v-carousel> -->
-    <slider animation="normal" class="max-card-height box-shadow-none" :indicators="false" :control-btn=false :interval=5000>
+    <slider animation="fade" class="max-card-height box-shadow-none" :indicators="false" :control-btn=false :interval=5000>
         <slider-item v-for="(meetup,index) in meetupsList" :key="index">                
             <h3 class=" white--text text-overflow" :style="{'text-overflow':'ellipsis'}">{{meetup.name}}</h3>
             <h3 class=" white--text text-overflow body-1" >{{meetup.next_event.name}}</h3>
