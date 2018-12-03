@@ -10,7 +10,8 @@
                         </v-flex>
                     </v-layout>
                     <v-layout text-xs-center>
-                        <skycon v-bind:condition="hour.icon" :key="hour.icon"/>
+                        <!-- <skycon v-bind:condition="hour.icon" :key="hour.icon"/> -->
+                        <img :src="hour.icon + '.svg'" />
                     </v-layout>
                     <v-layout text-xs-center justify-center class="margin-top">                        
                         <h4 class="caption text-overflow2">{{hour.summary}}</h4>
