@@ -11,7 +11,8 @@
                     </v-layout>
                     <v-layout text-xs-center>
                         <!-- <skycon v-bind:condition="hour.icon" :key="hour.icon"/> -->
-                        <img :src="hour.icon + '.svg'" />
+                        <!-- <img :src="hour.icon + '.png'" /> -->
+                        <component :is="hour.icon"></component>
                     </v-layout>
                     <v-layout text-xs-center justify-center class="margin-top">                        
                         <h4 class="caption text-overflow2">{{hour.summary}}</h4>
@@ -58,7 +59,16 @@ import Vue from 'vue'
 import config from '../../../config/config'
 import moment from 'moment'
 import VueSkycons from 'vue-skycons'
-
+import clearDay from '../../../assets/clear-day'
+import clearNight from '../../../assets/clear-night'
+import cloudFog from '../../../assets/cloud-fog'
+import cloudy from '../../../assets/cloudy'
+import partlyCloudyDay from '../../../assets/partly-cloudy-day'
+import partlyCloudyNight from '../../../assets/partly-cloudy-night'
+import rain from '../../../assets/rain'
+import sleet from '../../../assets/sleet'
+import snow from '../../../assets/snow'
+import wind from '../../../assets/wind'
 Vue.use(VueSkycons, { color: 'white' });
 //import axios from 'axios'    
     export default {
@@ -73,6 +83,18 @@ Vue.use(VueSkycons, { color: 'white' });
                 moment: moment,
             };   
              
+        },
+        components: {
+            'clear-day': clearDay,
+            'clear-night': clearNight,
+            'cloud-fog': cloudFog,
+            'cloudy': cloudy,
+            'partly-cloudy-day': partlyCloudyDay,
+            'partly-cloudy-night': partlyCloudyNight,
+            'rain': rain,
+            'sleet': sleet,
+            'snow': snow,
+            'wind': wind,
         },
         filters: {
             moment:moment

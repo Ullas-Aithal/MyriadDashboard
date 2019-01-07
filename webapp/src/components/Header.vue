@@ -9,7 +9,8 @@
                 </v-flex>
                 <v-flex class="text-xs-right" xs6>                                            
                     <v-layout row class="justify-end align-center">                                         
-                         <skycon v-bind:condition="currentWeather.currently.icon" :key="currentWeather.currently.icon"/>
+                         <!-- <skycon v-bind:condition="currentWeather.currently.icon" :key="currentWeather.currently.icon"/> -->
+                         <component :is="currentWeather.currently.icon"></component>
                          <h1 class="display-2">{{currentWeather.currently.apparentTemperature.toFixed(0)}}°</h1>
                     </v-layout>
                      <v-layout row class="justify-end">
@@ -56,6 +57,16 @@ import moment from 'moment'
 import axios from 'axios'
 import config from '../config/config'
 import VueSkycons from 'vue-skycons'
+import clearDay from '../assets/clear-day'
+import clearNight from '../assets/clear-night'
+import cloudFog from '../assets/cloud-fog'
+import cloudy from '../assets/cloudy'
+import partlyCloudyDay from '../assets/partly-cloudy-day'
+import partlyCloudyNight from '../assets/partly-cloudy-night'
+import rain from '../assets/rain'
+import sleet from '../assets/sleet'
+import snow from '../assets/snow'
+import wind from '../assets/wind'
 
 Vue.use(VueSkycons, { color: 'white' });
 import {dataBus} from '../main'
@@ -104,7 +115,18 @@ export default {
           }
         });
     }
-  },
+  },components: {
+            'clear-day': clearDay,
+            'clear-night': clearNight,
+            'cloud-fog': cloudFog,
+            'cloudy': cloudy,
+            'partly-cloudy-day': partlyCloudyDay,
+            'partly-cloudy-night': partlyCloudyNight,
+            'rain': rain,
+            'sleet': sleet,
+            'snow': snow,
+            'wind': wind,
+    },
   created() {
         dataBus.$on('updateWeatherinHeader', (weather) => {
             this.currentWeather = weather;
