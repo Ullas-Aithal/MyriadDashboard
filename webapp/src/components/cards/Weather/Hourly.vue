@@ -12,7 +12,7 @@
                     <v-layout text-xs-center>
                         <!-- <skycon v-bind:condition="hour.icon" :key="hour.icon"/> -->
                         <!-- <img :src="hour.icon + '.png'" /> -->
-                        <component :is="hour.icon"></component>
+                        <component class="margin-svg" :is="hour.icon"></component>
                     </v-layout>
                     <v-layout text-xs-center justify-center class="margin-top">                        
                         <h4 class="caption text-overflow2">{{hour.summary}}</h4>
@@ -52,6 +52,10 @@
     overflow: hidden !important;
     margin-left: 0px !important;
     margin-right: 0px !important;
+}
+.margin-svg{
+    margin-top: -25px;
+    margin-bottom: -30px;
 }
 </style>
 <script>

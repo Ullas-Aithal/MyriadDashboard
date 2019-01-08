@@ -10,7 +10,7 @@
                 <v-flex class="text-xs-right" xs6>                                            
                     <v-layout row class="justify-end align-center">                                         
                          <!-- <skycon v-bind:condition="currentWeather.currently.icon" :key="currentWeather.currently.icon"/> -->
-                         <component :is="currentWeather.currently.icon"></component>
+                         <component class="margin-svg" :is="currentWeather.currently.icon"></component>
                          <h1 class="display-2">{{currentWeather.currently.apparentTemperature.toFixed(0)}}°</h1>
                     </v-layout>
                      <v-layout row class="justify-end">
@@ -50,6 +50,10 @@
         max-height: 60px;
         margin-top: 20px !important;
     }
+    .margin-svg{
+    margin-top: -25px;
+    margin-bottom: -30px;
+}
 </style>
 <script>
 import Vue from 'vue'
