@@ -21,7 +21,7 @@
                             <v-carousel-item transition="slide-y-reverse-transition" reverse-transition="slide-y-transition" contain="true" 
                             v-for="(news,index) in newsList"
                             :key="index">
-                                <h2 class=" white--text" :style="{'text-overflow':'ellipsis'}">{{news.webTitle}}</h2>
+                                <h2 class=" white--text text-overflow" :style="{'text-overflow':'ellipsis'}">{{news.webTitle}}</h2>
                                 <h3 class=" white--text text-overflow subheading" :style="{'text-overflow':'ellipsis'}">{{news.fields.trailText}}</h3>                            
                             </v-carousel-item>
                         </v-carousel>
