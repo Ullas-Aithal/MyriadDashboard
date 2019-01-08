@@ -51,7 +51,7 @@ export default {
                     this.currencyValue = (response.data.USD_INR.val).toFixed(2);
                     //When the app is opened first time
                     if(this.previousCurrencyValue == 0.0){
-                        this.prevCurrencyValue = this.currencyValue;
+                        this.previousCurrencyValue = this.currencyValue;
                     }
                     else{
                         this.calculateChange();
@@ -82,7 +82,8 @@ export default {
             else if(deltaValue < 0){
                 this.deltaValueString =  "(-" + deltaValue + ")";
                 this.deltaPositive = false;
-            }                
+            }
+            this.previousCurrencyValue = this.currencyValue                
         }   
     },
     mounted(){
