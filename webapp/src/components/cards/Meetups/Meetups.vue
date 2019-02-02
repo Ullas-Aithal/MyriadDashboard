@@ -51,14 +51,9 @@ export default {
     },
     methods:{
         getMeetupUpdates(){
-            var tempUrl = this.configData.meetups.getUrl();
         var options = {
-        //url: 'http://localhost:3000/',
-         url: config.domainName,
-        method: 'POST',
-        data: {
-          url: this.configData.meetups.getUrl()
-        }
+        url: this.configData.domainName + 'meetups',
+        method: 'POST'
       }
         axios(options)
         .then((response) => {
