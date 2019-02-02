@@ -30,23 +30,14 @@ export default {
     methods:{
       getWeatherUpdates(){
         var options = {
-        //url: 'http://localhost:3000/',
-        url: config.domainName,
+        url: this.configData.domainName + 'weather',
         method: 'POST',
-        data: {
-          url: this.configData.darkSky.getForecastUrl()
-        }
       }
-        if(this.configData.darkSky.getForecastUrl() != null){
         axios(options)
         .then((response) => {                        
                  this.hours = response.data;
                  dataBus.$emit('updateWeatherinHeader',this.hours);
             });
-        }
-        else{
-            console.log("Couldn't get url for forecastUrl from config.js file");
-        }
       }
     },
     mounted(){

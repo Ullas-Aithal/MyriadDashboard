@@ -41,26 +41,19 @@ export default {
             moment:moment
         }
     },
-    methods:{
-        
+    methods:{        
         getCTATimings(){
-                    var options = {
-       // url: 'http://localhost:3000/cta',
-        url: config.domainName + 'cta',
-        method: 'POST',
-        data: {
-          url: ''
-        }
+            var options = {
+            url: this.configData.domainName,
+            method: 'POST',
       }
       if(this.ctaDirection == "north"){
-         options.data.url =  this.configData.cta.north.getUrl();
-         console.log(options.data.url);
+         options.url = options.url + "ctanorth"
       }
       else if(this.ctaDirection == "south"){
-          options.data.url =  this.configData.cta.south.getUrl();
-          console.log(options.data.url);
+          options.url = options.url + "ctasouth"
       }
-            axios(options)
+        axios(options)
         .then((response) => {
             if(response.status == 200){
                 this.ctaETA = response.data.ctatt.eta;

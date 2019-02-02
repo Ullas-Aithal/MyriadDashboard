@@ -70,19 +70,6 @@ export default {
             configData:config,
             newsList:[],
             currentWeather:{}
-            // news:{
-            //     "id": "world/2018/oct/26/jamal-khashoggi-erdogan-saudis-body-turkey",
-            //     "type": "article",
-            //     "sectionId": "world",
-            //     "sectionName": "World news",
-            //     "webPublicationDate": "2018-10-26T11:05:22Z",
-            //     "webTitle": "Erdoğan tells Saudis: show us where Jamal Khashoggi's body is",
-            //     "webUrl": "https://www.theguardian.com/world/2018/oct/26/jamal-khashoggi-erdogan-saudis-body-turkey",
-            //     "apiUrl": "https://content.guardianapis.com/world/2018/oct/26/jamal-khashoggi-erdogan-saudis-body-turkey",
-            //     "isHosted": false,
-            //     "pillarId": "pillar/news",
-            //     "pillarName": "News"
-            // },
         }
     },
     methods: {
@@ -91,12 +78,8 @@ export default {
     },
     updateNewsFeed(){
       var options = {
-              //url: 'http://localhost:3000/cta',
-              url: config.domainName,
+              url: this.configData.domainName + 'news',
               method: 'POST',
-              data: {
-                url: this.configData.guardian.getUrl()
-              }
             }
       axios(options)
         .then((response) => {
