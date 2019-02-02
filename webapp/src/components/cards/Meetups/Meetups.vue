@@ -53,7 +53,8 @@ export default {
         getMeetupUpdates(){
             var tempUrl = this.configData.meetups.getUrl();
         var options = {
-        url: 'http://localhost:3000/',
+        //url: 'http://localhost:3000/',
+         url: config.domainName,
         method: 'POST',
         data: {
           url: this.configData.meetups.getUrl()

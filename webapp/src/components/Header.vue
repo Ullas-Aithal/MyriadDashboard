@@ -106,7 +106,8 @@ export default {
     },
     updateNewsFeed(){
       var options = {
-              url: 'http://localhost:3000/cta',
+              //url: 'http://localhost:3000/cta',
+              url: config.domainName,
               method: 'POST',
               data: {
                 url: this.configData.guardian.getUrl()

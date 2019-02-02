@@ -6,7 +6,7 @@ var config = {
     //More information on AccuWeather api : https://developer.accuweather.com/apis 
     //Use this url to get your location key (api key needed): https://developer.accuweather.com/accuweather-locations-api/apis/get/locations/v1/cities/search
     //Give your zipcode for 'q' in the request
-
+    domainName: 'http://myriad-dashboard.icu:3000/',
     accuWeather: {
         forecastUrl:'https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/',
         imageUrl: 'https://developer.accuweather.com/sites/default/files/',
