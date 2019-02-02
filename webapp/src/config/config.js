@@ -1,5 +1,4 @@
 var config = {
-    //domainName: 'http://myriad-dashboard.icu:3000/',
     domainName: 'http://localhost:3000/',
     //More information on currency converter API https://free.currencyconverterapi.com/ 
     currencyConverter:{
