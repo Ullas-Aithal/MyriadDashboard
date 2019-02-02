@@ -45,7 +45,8 @@ export default {
         
         getCTATimings(){
                     var options = {
-        url: 'http://localhost:3000/cta',
+       // url: 'http://localhost:3000/cta',
+        url: config.domainName + 'cta',
         method: 'POST',
         data: {
           url: ''

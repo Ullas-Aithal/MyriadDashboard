@@ -30,7 +30,8 @@ export default {
     methods:{
       getWeatherUpdates(){
         var options = {
-        url: 'http://localhost:3000/',
+        //url: 'http://localhost:3000/',
+        url: config.domainName,
         method: 'POST',
         data: {
           url: this.configData.darkSky.getForecastUrl()
