@@ -1,3 +1,5 @@
+//import configJs from './config/config'
+var config = require('./config/config');
 var express = require('express');
 var request = require('request');
 var bodyParser = require('body-parser');
@@ -27,9 +29,9 @@ app.post('/',(req,res) => {
     })   
 });
 
-app.post('/cta',(req,res) => {
+app.post('/ctanorth',(req,res) => {
     var options = {
-        url: req.body.url,
+        url: config.cta.north.getUrl(),
         method: 'GET',
         
       }    
@@ -46,7 +48,82 @@ app.post('/cta',(req,res) => {
         }
     })   
 });
+app.post('/ctasouth',(req,res) => {
+    var options = {
+        url: config.cta.south.getUrl(),
+        method: 'GET',
+        
+      }    
+    request(options,(error,response,body)=>{
+        console.log(options.url);
+        if(error){
+            console.log("Error connecting " + error);
+        }
+        else{
+            console.log(response.statusCode + ' ' + response.statusMessage + ' for: ' + options.url);
+            //console.log(response.body);
+            res.send(body);
 
+        }
+    })   
+});
+app.post('/weather',(req,res) => {
+    var options = {
+        url: config.darkSky.getForecastUrl(),
+        method: 'GET',
+        
+      }    
+    request(options,(error,response,body)=>{
+        console.log(options.url);
+        if(error){
+            console.log("Error connecting " + error);
+        }
+        else{
+            console.log(response.statusCode + ' ' + response.statusMessage + ' for: ' + options.url);
+            //console.log(response.body);
+            res.send(body);
+
+        }
+    })   
+});
+app.post('/meetups',(req,res) => {
+    var options = {
+        url: config.meetups.getUrl(),
+        method: 'GET',
+        
+      }    
+    request(options,(error,response,body)=>{
+        console.log(options.url);
+        if(error){
+            console.log("Error connecting " + error);
+        }
+        else{
+            console.log(response.statusCode + ' ' + response.statusMessage + ' for: ' + options.url);
+            //console.log(response.body);
+            res.send(body);
+
+        }
+    })   
+});
+app.post('/news',(req,res) => {
+    var options = {
+        url: config.guardian.getUrl(),
+        method: 'GET',
+        
+      }    
+    request(options,(error,response,body)=>{
+        console.log(options.url);
+        if(error){
+            console.log("Error connecting " + error);
+        }
+        else{
+            console.log(response.statusCode + ' ' + response.statusMessage + ' for: ' + options.url);
+            //console.log(response.body);
+            res.send(body);
+
+        }
+    })   
+});
 
 app.listen(3000,() => {
     console.log('Listening on 3000');
