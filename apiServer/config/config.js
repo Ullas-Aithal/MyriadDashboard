@@ -22,7 +22,7 @@ module.exports  = {
         apiKey: '<<your api key>>',   
         page:'5',
         getUrl: function(){
-            return this.url + "&zip=" + this.zipCode + "&radius=" + this.radius + "&category=" + this.category + "&key=" + this.apikey + "&page=" + this.page;
+            return this.url + "&zip=" + this.zipCode + "&radius=" + this.radius + "&category=" + this.category + "&key=" + this.apiKey + "&page=" + this.page;
         }
     },
     cta:{
@@ -33,7 +33,7 @@ module.exports  = {
             stpid: '30107',
             apiKey: '<<your api key>>',     
             getUrl: function(){
-                return this.url + "&mapid=" + this.mapid + "&rt=" + this.route + "&key=" + this.apikey + "&stpid=" + this.stpid;
+                return this.url + "&mapid=" + this.mapid + "&rt=" + this.route + "&key=" + this.apiKey + "&stpid=" + this.stpid;
             }
         },
         south:{
@@ -43,7 +43,7 @@ module.exports  = {
             stpid: '30108',
             apiKey: '<<your api key>>',     
             getUrl: function(){
-                return this.url + "&mapid=" + this.mapid + "&rt=" + this.route + "&key=" + this.apikey + "&stpid=" + this.stpid;
+                return this.url + "&mapid=" + this.mapid + "&rt=" + this.route + "&key=" + this.apiKey + "&stpid=" + this.stpid;
              }
             }
     },
@@ -51,7 +51,7 @@ module.exports  = {
         url: 'http://content.guardianapis.com/search?&order-by=newest&show-fields=all&section=world&',
         apiKey: '<<your api key>>',
         getUrl: function(){
-            return this.url + "api-key=" + this.apikey;
+            return this.url + "api-key=" + this.apiKey;
         }
     }
 }
