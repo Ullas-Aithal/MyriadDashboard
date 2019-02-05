@@ -1,12 +1,12 @@
 <template>
-<v-flex xs3 text-xs-center>
+<v-flex xs3 text-xs-center class="padding-top-8">
     <v-card class="max-card-height white--text" :style="{'background': 'rgba(0,0,0,0.3)'}" >
-        <v-layout>                  
-            <v-flex xs4 class="no-padding margin-10">                    
+            <v-layout row>         
+            <v-flex xs3 class="no-padding margin-10">                    
                 <img
                 :src="currentAlbumImage"
                 height="100px"
-                contain>
+                >
                 <v-badge left v-if="trackNumber > 0">
                     <span slot="badge">{{trackNumber}}</span>
                 </v-badge>
@@ -19,13 +19,16 @@
                 </div>
                 </v-card-title>
             </v-flex>
-        </v-layout>
+            </v-layout>
         <v-divider light></v-divider>
         <h3>Top 20 </h3>
     </v-card>            
 </v-flex>
 </template>
 <style>
+.padding-top-8 {
+    padding-top: 8px !important;
+}
 .max-card-height{
     min-height: 150px !important;
 }
