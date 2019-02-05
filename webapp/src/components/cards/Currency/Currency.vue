@@ -5,6 +5,7 @@
                 <h1 primary-title class="display-3">₹ {{currencyValue}}</h1>
                 <p class="delta-value-style" v-if="deltaValueString" v-bind:class="{ 'green-color': deltaPositive , 'red-color': !deltaPositive }">{{deltaValueString}}</p>
         </v-card-title>
+        <v-divider light></v-divider>
         <h2>USD → INR</h2>
     </v-card>
 </v-flex>
