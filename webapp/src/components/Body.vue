@@ -6,8 +6,11 @@
             <v-layout row >
                 <CTA v-bind:ctaDirection="ctaDirection[0]"></CTA>
                 <CTA v-bind:ctaDirection="ctaDirection[1]"></CTA>
-                <Meetups></Meetups>
                 <Currency></Currency>
+                <LastFM></LastFM>
+            </v-layout>
+            <v-layout row>
+                <Meetups></Meetups>
             </v-layout>
         </v-container>
     </v-flex>
@@ -18,13 +21,15 @@ import Weather from '../components/cards/Weather/Weather'
 import Currency from '../components/cards/Currency/Currency'
 import Meetups from '../components/cards/Meetups/Meetups'
 import CTA from '../components/cards/CTA/CTA'
+import LastFM from '../components/cards/Music/LastFM'
 export default {
     name:'Body',
     components:{
         Weather,
         Currency,
         Meetups,
-        CTA
+        CTA,
+        LastFM
     },
     data(){
         return{
