@@ -53,5 +53,12 @@ module.exports  = {
         getUrl: function(){
             return this.url + "api-key=" + this.apiKey;
         }
+    },
+    lastFM:{
+        url:'http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&format=json&api_key=',
+        apiKey: '<<your api key>>',
+        getUrl: function(){
+            return this.url + this.apiKey;
+        }
     }
 }
