@@ -71,7 +71,6 @@ export default {
             }
                 axios(options)
                 .then((response) => {
-                    console.log('here');
                 if(response.status == 200){
                     this.topTracks = response.data;
                 }
@@ -96,7 +95,7 @@ export default {
     mounted(){
         this.getTopTracks();
         //Get tracks every 12 hours
-        setInterval(() => this.getCurrency(), 60*60*12*1000);
+        setInterval(() => this.getNextTrack(), 60*60*12*1000);
         //Rotate track information every 5 seconds
         setInterval(() => this.getNextTrack(), 5*1*1000);
     }
