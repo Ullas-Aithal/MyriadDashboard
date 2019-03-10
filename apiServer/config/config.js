@@ -60,5 +60,15 @@ module.exports  = {
         getUrl: function(){
             return this.url + this.apiKey;
         }
+    },
+    //More information on currency converter API https://free.currencyconverterapi.com/ 
+    currencyConverter:{
+        url:'https://free.currencyconverterapi.com/api/v5/convert?q=',
+        fromCurrency: 'USD',
+        toCurrency: 'INR',
+        apiKey: '<<your api key>>',
+        getUrl: function(){
+            return this.url + this.fromCurrency + '_' + this.toCurrency + '&compact=y&apiKey=' + this.apiKey;
+        }
     }
 }
