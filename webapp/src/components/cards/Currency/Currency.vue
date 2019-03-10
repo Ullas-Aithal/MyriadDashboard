@@ -43,11 +43,16 @@ export default {
     },
     methods:{
         getCurrency(){
-            if(this.configData.currencyConverter.getUrl() != null){
+            var options = {
+                url: this.configData.domainName + 'currency',
+                method: 'POST'
+            }
+            if(options.url != null){
                 this.querying = true;
-                axios.get(this.configData.currencyConverter.getUrl())
+                axios(options)
                 .then((response) => {
                     this.querying = false;
+                
                 if(response.status == 200){
                     this.currencyValue = (response.data.USD_INR.val).toFixed(2);
                     //When the app is opened first time
