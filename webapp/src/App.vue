@@ -1,6 +1,6 @@
 <template>
     <!-- <v-app dark> -->
-    <v-app :style="{'background-image': 'url(https://www.pixelstalk.net/wp-content/uploads/2016/04/Different-Avengers-Wallpaper.jpg)', 'background-repeat': 'no-repeat', 'background-size':'cover', }">
+    <v-app :style="{'background-image': 'url(https://wallpaperaccess.com/full/45815.jpg)', 'background-repeat': 'no-repeat', 'background-size':'cover', }">
       <v-content>
       <!-- <v-content :style="{'opacity': '0.8'}"> -->
           <Header/>
