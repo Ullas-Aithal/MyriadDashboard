@@ -2,6 +2,7 @@
 import requests, json
 from bs4 import BeautifulSoup
 from flask import Flask, jsonify
+from flask_cors import CORS
 
 #Get username and password from config.json file
 with open('config.json') as json_file:
@@ -67,6 +68,7 @@ def getCheckedoutItems():
         response.append(responseItem)
     return response
 app = Flask(__name__)
+CORS(app)
 
 #Create a GET call that sends response object
 @app.route('/cpl', methods=['GET'])
