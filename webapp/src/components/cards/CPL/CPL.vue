@@ -1,17 +1,16 @@
 <template>
-    <v-flex  xs3 text-xs-center>
+    <v-flex v-if="bookList.length > 0" xs3 text-xs-center>
     <v-card  class="max-card-height white--text" :style="{'background': 'rgba(0,0,0,0.3)'}">
     <v-card-title class="justify-center">
-        <h1 primary-title class="display-2">CPL</h1>
+        <h1 primary-title class="display-2">Library Due</h1>
     </v-card-title>
     <v-carousel hide-controls hide-delimiters class="max-card-height box-shadow-none ">
         <v-carousel-item contain="true" 
-            v-for="(meetup,index) in meetupsList"
+            v-for="(book,index) in bookList"
             :key="index">
-            <!-- <v-flex xs2><img style="width: 70px; height: 70px" :src=meetup.group_photo.thumb_link></v-flex> -->
-            <h3 class=" white--text text-overflow" :style="{'text-overflow':'ellipsis'}">{{meetup.name}}</h3>
-            <h3 class=" white--text text-overflow body-1" >{{meetup.next_event.name}}</h3>
-            <h4 class="white--text text-overflow body-2">{{ moment.unix(meetup.next_event.time/1000).format('h:mm a dddd MMM Do ')}}</h4>
+            <h3 class=" white--text text-overflow" :style="{'text-overflow':'ellipsis'}">{{book.book_title}}</h3>
+            <h5 class="white--text text-overflow body-1">Due on {{ book.due_date}}</h5>
+            <h3 class=" white--text text-overflow body-1" >{{book.days_remaining}}</h3>
             </v-carousel-item>
     </v-carousel>
         </v-card>
@@ -38,29 +37,28 @@ import axios from 'axios'
 import config from '../../../config/config'
 import moment from 'moment'
 export default {
-    name: 'Meetups',
+    name: 'CPL',
     data(){
         return{
             configData:config,
             moment: moment,
-            meetupsList:[]
+            bookList:[]
         }
     },
     filters: {
         moment:moment
     },
     methods:{
-        getMeetupUpdates(){
+        getCplData(){
         var options = {
-        url: this.configData.domainName + 'meetups',
-        method: 'POST'
+        url: this.configData.pythonDomainName + 'cpl',
+        method: 'GET'
       }
         axios(options)
         .then((response) => {
             if(response.status == 200){
                 console.log(response.data);
-                this.meetupsList = response.data
-                console.log(this.meetupsList);
+                this.bookList = response.data
             }
             else {
                  /* eslint-disable no-console */
@@ -71,8 +69,9 @@ export default {
         }
     },
     mounted(){
-        this.getMeetupUpdates();
-        setInterval(() => this.getCurrency(), 60*60*1000);
+        this.getCplData();
+        //Run everyday at 5 am
+        setInterval(() => this.getCplData(),  moment("24:00:00", "hh:mm:ss").add(5, 'hours').diff(moment(), 'seconds'));
     }
 }
 </script>

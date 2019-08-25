@@ -72,7 +72,7 @@ export default {
     },
     mounted(){
         this.getMeetupUpdates();
-        setInterval(() => this.getCurrency(), 60*60*1000);
+        setInterval(() => this.getMeetupUpdates(), 60*60*1000);
     }
 }
 </script>
