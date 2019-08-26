@@ -71,7 +71,7 @@ export default {
     mounted(){
         this.getCplData();
         //Run everyday at 5 am
-        setInterval(() => this.getCplData(),  moment("24:00:00", "hh:mm:ss").add(5, 'hours').diff(moment(), 'seconds'));
+        setInterval(() => this.getCplData(),  moment("24:00:00", "hh:mm:ss").add(5, 'hours').diff(moment(), 'milliseconds'));
     }
 }
 </script>
