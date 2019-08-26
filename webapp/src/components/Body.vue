@@ -10,7 +10,7 @@
                 <LastFM></LastFM>
             </v-layout>
             <v-layout row>
-                <Meetups></Meetups>
+                <!-- <Meetups></Meetups> -->
                 <CPL></CPL>
             </v-layout>
         </v-container>
@@ -20,7 +20,7 @@
 <script>
 import Weather from '../components/cards/Weather/Weather'
 import Currency from '../components/cards/Currency/Currency'
-import Meetups from '../components/cards/Meetups/Meetups'
+// import Meetups from '../components/cards/Meetups/Meetups'
 import CTA from '../components/cards/CTA/CTA'
 import LastFM from '../components/cards/Music/LastFM'
 import CPL from '../components/cards/CPL/CPL'
@@ -29,7 +29,7 @@ export default {
     components:{
         Weather,
         Currency,
-        Meetups,
+        //Meetups,
         CTA,
         LastFM,
         CPL
