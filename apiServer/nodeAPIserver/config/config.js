@@ -70,5 +70,12 @@ module.exports  = {
         getUrl: function(){
             return this.url + this.fromCurrency + '_' + this.toCurrency + '&compact=y&apiKey=' + this.apiKey;
         }
-    }
+    },
+    //Current average hourly comed pricing. More information : https://hourlypricing.comed.com/live-prices/
+    comedHourlyPricing:{
+        url:'https://hourlypricing.comed.com/api?type=currenthouraverage',
+        getUrl: function(){
+            return this.url;
+        }
+    },
 }
