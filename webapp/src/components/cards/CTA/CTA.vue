@@ -2,7 +2,7 @@
     <v-flex  xs3 text-xs-center>
     <v-card  :style="{'background': 'rgba(0,0,0,0.3)'}" class="max-card-height min-card-height white--text" >
          <v-card-title class="justify-center">
-            <h1 primary-title class="display-2 text-overflow" :style="{'text-overflow':'ellipsis'}">{{destinationStation}}fjsdkjfkdsfjdskfhdsjkhfsjdkfhjsdfhdsjfhsdjkfhsdjkfhsdjkfhdsjk</h1>
+            <h1 primary-title class="display-2 text-overflow" :style="{'text-overflow':'ellipsis'}">{{destinationStation}}</h1>
         </v-card-title>
         
             <h3> Next Train in </h3>            
