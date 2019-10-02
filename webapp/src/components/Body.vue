@@ -12,6 +12,7 @@
             <v-layout row>
                 <!-- <Meetups></Meetups> -->
                 <CPL></CPL>
+                <ComEd></ComEd>
             </v-layout>
         </v-container>
     </v-flex>
@@ -24,6 +25,7 @@ import Currency from '../components/cards/Currency/Currency'
 import CTA from '../components/cards/CTA/CTA'
 import LastFM from '../components/cards/Music/LastFM'
 import CPL from '../components/cards/CPL/CPL'
+import ComEd from '../components/cards/ComEd/ComEd'
 export default {
     name:'Body',
     components:{
@@ -32,7 +34,8 @@ export default {
         //Meetups,
         CTA,
         LastFM,
-        CPL
+        CPL,
+        ComEd
     },
     data(){
         return{
