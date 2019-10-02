@@ -2,7 +2,7 @@
     <v-flex  xs3 text-xs-center>
     <v-card  :style="{'background': 'rgba(0,0,0,0.3)'}" class="max-card-height min-card-height white--text" >
          <v-card-title class="justify-center">
-            <h1 primary-title class="display-2">{{destinationStation}}</h1>
+            <h1 primary-title class="display-2 text-overflow" :style="{'text-overflow':'ellipsis'}">{{destinationStation}}fjsdkjfkdsfjdskfhdsjkhfsjdkfhjsdfhdsjfhsdjkfhsdjkfhsdjkfhdsjk</h1>
         </v-card-title>
         
             <h3> Next Train in </h3>            
@@ -21,6 +21,14 @@
 }
 .min-card-height{
     min-height: 150px !important;
+}
+.text-overflow {
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    display: block !important;
+    overflow: hidden !important;
+    margin-left: 10px !important;
+    margin-right: 1px !important;
 }
 </style>
 <script>
