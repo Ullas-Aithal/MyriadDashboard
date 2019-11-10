@@ -2,15 +2,17 @@
     <v-flex  xs3 text-xs-center>
     <v-card  :style="{'background': 'rgba(0,0,0,0.3)'}" class="max-card-height min-card-height white--text" >
          <v-card-title class="justify-center">
-            <h1 primary-title class="display-2 text-overflow" :style="{'text-overflow':'ellipsis'}">{{destinationStation}}</h1>
-        </v-card-title>
-        
-            <h3> Next Train in </h3>            
-    
-            <v-layout>
-                <v-flex v-if="etaTime[0]"> <h2 > {{etaTime[0]}} min</h2> </v-flex>
-                <v-flex v-if="etaTime[1]"> <h2 >{{etaTime[1]}} min</h2> </v-flex>
-                <v-flex  v-if="etaTime[2]"> <h2 >{{etaTime[2]}} min</h2> </v-flex>
+            <h1 primary-title class="font-weight-regular display-2 text-overflow" :style="{'text-overflow':'ellipsis'}">{{ctaDirectionUpper}}</h1>
+        </v-card-title>          
+            <v-layout class="margin-5">
+                <v-flex v-if="etaTime[0]" class="font-weight-light text-overflow" :class="{'xs12': etaTime[0] != null}" :style="{'text-overflow':'ellipsis'}"> <h2 class="font-weight-light text-overflow" :style="{'text-overflow':'ellipsis'}">{{ctaETA[0].destNm}}  </h2> </v-flex>
+                <v-flex v-if="etaTime[1]" class="font-weight-light text-overflow" :class="{'xs12': etaTime[1] != null}" :style="{'text-overflow':'ellipsis'}"> <h2 class="font-weight-light text-overflow" :style="{'text-overflow':'ellipsis'}">{{ctaETA[1].destNm}}  </h2> </v-flex>
+                <v-flex v-if="etaTime[2]" class="font-weight-light text-overflow" :class="{'xs12': etaTime[2] != null}" :style="{'text-overflow':'ellipsis'}"> <h2 class="font-weight-light text-overflow" :style="{'text-overflow':'ellipsis'}">{{ctaETA[2].destNm}}  </h2> </v-flex>
+            </v-layout>
+            <v-layout class="margin-5">
+                <v-flex v-if="etaTime[0]" class="font-weight-light text-overflow" :class="{'xs12': etaTime[0] != null}"> <h2 > {{etaTime[0]}} min </h2> </v-flex> 
+                <v-flex v-if="etaTime[1]" class="font-weight-light text-overflow" :class="{'xs12': etaTime[1] != null}"> <h2 >{{etaTime[1]}} min</h2> </v-flex>
+                <v-flex v-if="etaTime[2]" class="font-weight-light text-overflow" :class="{'xs12': etaTime[1] != null}"> <h2 >{{etaTime[2]}} min</h2> </v-flex>
             </v-layout>
         </v-card>
     </v-flex>
@@ -27,8 +29,12 @@
     text-overflow: ellipsis !important;
     display: block !important;
     overflow: hidden !important;
-    margin-left: 10px !important;
-    margin-right: 1px !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+.margin-5 {
+    margin-right: 5px !important;
+    margin-left: 5px !important;
 }
 </style>
 <script>
@@ -43,6 +49,7 @@ export default {
     data(){
         return{
             configData:config,
+            ctaDirectionUpper:this.ctaDirection[0].toUpperCase() + this.ctaDirection.slice(1),
             ctaETA:[],
             destinationStation:'',
             etaTime:[],
