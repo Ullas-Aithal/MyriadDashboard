@@ -5,9 +5,9 @@
             <h1 primary-title class="font-weight-regular display-2 text-overflow" :style="{'text-overflow':'ellipsis'}">{{ctaDirectionUpper}}</h1>
         </v-card-title>          
             <v-layout class="margin-5">
-                <v-flex v-if="etaTime[0]" class="text-overflow" :class="{'xs12': etaTime[0] != null}" :style="{'text-overflow':'ellipsis'}"> <h2 class="font-weight-light text-overflow" :style="{'text-overflow':'ellipsis'}">{{ctaETA[0].destNm}}  </h2> </v-flex>
-                <v-flex v-if="etaTime[1]" class="text-overflow" :class="{'xs12': etaTime[1] != null}" :style="{'text-overflow':'ellipsis'}"> <h2 class="font-weight-light text-overflow" :style="{'text-overflow':'ellipsis'}">{{ctaETA[1].destNm}}  </h2> </v-flex>
-                <v-flex v-if="etaTime[2]" class="text-overflow" :class="{'xs12': etaTime[2] != null}" :style="{'text-overflow':'ellipsis'}"> <h2 class="font-weight-light text-overflow" :style="{'text-overflow':'ellipsis'}">{{ctaETA[2].destNm}}  </h2> </v-flex>
+                <v-flex v-if="etaTime[0]" class="text-overflow" :class="{'xs12': etaTime[0] != null}" :style="{'text-overflow':'ellipsis'}"> <h2 class="text-overflow" :style="{'text-overflow':'ellipsis'}">{{ctaETA[0].destNm}}  </h2> </v-flex>
+                <v-flex v-if="etaTime[1]" class="text-overflow" :class="{'xs12': etaTime[1] != null}" :style="{'text-overflow':'ellipsis'}"> <h2 class="text-overflow" :style="{'text-overflow':'ellipsis'}">{{ctaETA[1].destNm}}  </h2> </v-flex>
+                <v-flex v-if="etaTime[2]" class="text-overflow" :class="{'xs12': etaTime[2] != null}" :style="{'text-overflow':'ellipsis'}"> <h2 class="text-overflow" :style="{'text-overflow':'ellipsis'}">{{ctaETA[2].destNm}}  </h2> </v-flex>
             </v-layout>
             <v-layout class="margin-5">
                 <v-flex v-if="etaTime[0]" class="text-overflow" :class="{'xs12': etaTime[0] != null}"> <h2 > {{etaTime[0]}} min </h2> </v-flex> 
