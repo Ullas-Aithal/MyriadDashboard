@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@vue/cli": "^3.0.1",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "vue": "^2.5.17",
     "vue-moment": "^4.0.0",
     "vue-skycons": "^1.0.5",
